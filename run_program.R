@@ -136,7 +136,7 @@ for (i in unique(outDF2$Label)) {
         outDF2$r2[outDF2$Label==i] <- summary(fit_nls)$adj.r.squared
         outDF2$p[outDF2$Label==i] <- summary(fit_nls)$coefficients[4]
         
-        with(subDF, plot(linear_slope~Tmean))
+        with(subDF, plot(log(flux.lin)~Tmean))
         lines(subDF$Tmean,predict(fit_nls),lty=2,col="red",lwd=3)
         title(paste0(i))
     }
